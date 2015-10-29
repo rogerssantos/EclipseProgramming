@@ -1,0 +1,11 @@
+
+public class TextHints {
+
+	public static void main(String[] args) {
+		// Print a \ caracter
+		System.out.print("\\");
+		// Print a " caracter
+		System.out.print(""Roger\"");
+	}
+
+}
