@@ -1,0 +1,10 @@
+
+public class Welcome4 {
+
+	public static void main(String[] args) {
+		// Sistem.out.printf
+		System.out.printf("%s\n%s\n", "Welcome to", "Java Programming!");
+
+	}
+
+}
