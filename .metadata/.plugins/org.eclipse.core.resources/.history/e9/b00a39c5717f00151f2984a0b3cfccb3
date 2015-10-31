@@ -1,0 +1,10 @@
+
+public class GradeBook {
+
+	public displayMessage() {
+		// TODO Auto-generated method stub
+		
+		System.out.print( "Welcome to the Grade Book!" );
+	}
+
+}
