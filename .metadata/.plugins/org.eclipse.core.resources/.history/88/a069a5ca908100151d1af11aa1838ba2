@@ -10,8 +10,7 @@ public class GradeBookTest {
 		System.out.println( "Enter the course name:" );
 		String nameOfcourse = input.nextLine();
 		System.out.println();
-		
-		myGradeBook.displayMessage( nameOfcourse );
+		myGradeBook.displayMessage();
 		
 		input.close();
 

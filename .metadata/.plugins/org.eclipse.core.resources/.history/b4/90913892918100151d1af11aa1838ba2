@@ -1,0 +1,16 @@
+
+public class GradeBookOneFile {
+
+	public static void main(String[] args) {
+		
+		private String courseName;
+		
+		public void setCourseName( String name )
+		{
+			courseName = name;
+		}
+		
+
+	}
+
+}

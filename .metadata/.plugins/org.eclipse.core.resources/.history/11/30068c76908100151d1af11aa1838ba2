@@ -7,13 +7,7 @@ public class GradeBookTest {
 		Scanner input = new Scanner( System.in );
 		GradeBook myGradeBook = new GradeBook();
 		
-		System.out.println( "Enter the course name:" );
-		String nameOfcourse = input.nextLine();
-		System.out.println();
-		
-		myGradeBook.displayMessage( nameOfcourse );
-		
-		input.close();
+		myGradeBook.displayMessage();
 
 	}
 

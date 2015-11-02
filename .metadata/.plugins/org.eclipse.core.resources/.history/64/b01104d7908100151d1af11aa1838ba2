@@ -11,7 +11,7 @@ public class GradeBookTest {
 		String nameOfcourse = input.nextLine();
 		System.out.println();
 		
-		myGradeBook.displayMessage( nameOfcourse );
+		myGradeBook.displayMessage( courseName );
 		
 		input.close();
 
