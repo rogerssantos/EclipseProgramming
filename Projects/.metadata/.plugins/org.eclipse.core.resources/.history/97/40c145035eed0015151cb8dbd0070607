@@ -1,0 +1,10 @@
+package objetos_compostos;
+
+public class PrincipalPessoaDvd {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

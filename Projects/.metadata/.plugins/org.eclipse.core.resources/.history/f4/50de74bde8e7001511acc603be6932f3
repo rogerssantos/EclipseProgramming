@@ -1,0 +1,38 @@
+package introducao_oo;
+
+import java.util.ArrayList;
+
+import javax.swing.JOptionPane;
+
+public class Dvd {
+	
+	static ArrayList<Dvd> lista = new ArrayList<Dvd>();
+
+	String titulo;
+	int anoLancamento;
+	double valor;
+
+	double calculaPrecoTotal() {
+		double valorTotal = 0;
+		for (Dvd dvd : lista){
+			valorTotal += dvd.valor;
+		}
+		return valorTotal;
+	}
+
+	void cadastraDvd() {
+		titulo = JOptionPane.showInputDialog("Titulo:");
+		anoLancamento = Integer.parseInt(JOptionPane.showInputDialog("Ano de lançamento:"));
+		valor = Double.parseDouble(JOptionPane.showInputDialog("Valor:"));
+	}
+
+	String apresentaValorTotal(){
+		return "O valor total é: " + calculaPrecoTotal();
+	}
+	
+	String seApresente() {
+		return "nome: " + titulo + "\n"
+				+ "Ano de lançamento: " + anoLancamento + "  Valor: " + valor;
+	}
+
+}

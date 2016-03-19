@@ -1,0 +1,8 @@
+package introducao_oo;
+
+public class Pessoa {
+	
+	String nome;
+	double peso, altura;
+
+}

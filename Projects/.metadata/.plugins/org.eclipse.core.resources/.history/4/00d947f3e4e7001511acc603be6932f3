@@ -1,0 +1,43 @@
+package introducao_oo;
+
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+
+import javax.swing.JOptionPane;
+
+public class Dvd {
+	
+	static ArrayList<Dvd> lista = new ArrayList<Dvd>();
+
+	String nome;
+	int ano;
+	double valor;
+
+	double calculaPrecoTotal() {
+		double valorTotal = 0;
+		for (Dvd dvd : lista){
+			valorTotal += dvd.valor;
+		}
+		return valorTotal;
+	}
+
+	void cadastraDvd() {
+		nome = JOptionPane.showInputDialog("Nome");
+		ano = Integer.parseInt(JOptionPane.showInputDialog("ano"));
+		valor = Double.parseDouble(JOptionPane.showInputDialog("valor"));
+	}
+
+	String categoriaImc(){
+		
+	}
+	
+	String apresentaValorTotal(){
+		return "O valor total é: " + calculaPrecoTotal();
+	}
+	String seApresente() {
+		return nome + ": " + df.format(calculaImc()) + "\n"
+				+ "Categoria: " + categoriaImc()
+				+ "\n\n";
+	}
+
+}

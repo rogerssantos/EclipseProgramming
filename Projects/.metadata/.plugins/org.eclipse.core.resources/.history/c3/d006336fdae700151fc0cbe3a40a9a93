@@ -1,0 +1,20 @@
+package introducao_oo;
+
+import javax.swing.JOptionPane;
+
+public class Pessoa {
+	
+	String nome;
+	double peso, altura;
+	
+	double calculaImc(){
+		return peso/(altura*altura);
+	}
+	
+	void cadastra(){
+		nome = JOptionPane.showInputDialog("Nome");
+		peso = JOptionPane.paseDouble.showInputDialog("Peso");
+		altura = JOptionPane.parseDouble.showInputDialog("Altura");
+	}
+	
+}

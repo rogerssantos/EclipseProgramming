@@ -1,0 +1,9 @@
+package introducao_oo;
+
+public class PrincipalPessoa {
+		
+	ArrayList<Pessoa> lista = new ArrayList<Pessoa>();
+	
+	
+
+}
