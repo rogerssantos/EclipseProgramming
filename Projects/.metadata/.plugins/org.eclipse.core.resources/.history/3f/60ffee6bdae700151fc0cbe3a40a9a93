@@ -1,0 +1,12 @@
+package introducao_oo;
+
+public class Pessoa {
+	
+	String nome;
+	double peso, altura;
+	
+	double calculaImc(){
+		return peso/(altura*altura);
+	}
+
+}

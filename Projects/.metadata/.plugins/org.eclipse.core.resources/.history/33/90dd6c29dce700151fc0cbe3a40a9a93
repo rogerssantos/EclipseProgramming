@@ -1,0 +1,11 @@
+package introducao_oo;
+
+import java.util.ArrayList;
+
+public class PrincipalPessoa {
+		
+	ArrayList<Pessoa> lista = new ArrayList<Pessoa>();
+	
+	
+
+}

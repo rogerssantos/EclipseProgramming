@@ -1,0 +1,41 @@
+package introducao_oo;
+
+import javax.swing.JOptionPane;
+
+public class Pessoa {
+
+	String nome;
+	double peso, altura;
+	private Object String;
+
+	double calculaImc() {
+		return peso / (altura * altura);
+	}
+
+	void cadastra() {
+		nome = JOptionPane.showInputDialog("Nome");
+		peso = Double.parseDouble(JOptionPane.showInputDialog("Peso"));
+		altura = Double.parseDouble(JOptionPane.showInputDialog("Altura"));
+	}
+
+	String categoriaImc(){
+		if (calculaImc() < 18){
+			String categoria = "Abaixo do peso"; 
+		}else
+			if(calculaImc() > 29){
+				String categoria = "Acima do peso";
+			}
+			else{
+				String categoria = "Peso ideal";
+			}
+				
+		
+		return categoriaImc();
+		
+	}
+	String seApresente() {
+		
+		return nome + ":" + calculaImc() + "\n";
+	}
+
+}
