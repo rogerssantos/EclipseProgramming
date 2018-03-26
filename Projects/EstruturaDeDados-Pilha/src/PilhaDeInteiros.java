@@ -11,6 +11,7 @@ public class PilhaDeInteiros {
 	}
 	
 	public boolean estaVazia() {
+		// error
 		if (this.indicePilha > -1);
 			return false;
 	}
