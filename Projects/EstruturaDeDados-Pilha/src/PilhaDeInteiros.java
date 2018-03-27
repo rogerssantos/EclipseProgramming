@@ -14,9 +14,7 @@ public class PilhaDeInteiros {
 		if (this.indicePilha == -1) {
 			return true;
 		}
-		else {
-			return false;
-		}
+		return false;
 	};
 	
 	public int tamanho() {
@@ -35,8 +33,10 @@ public class PilhaDeInteiros {
 	}
 	
 	public void empilhar(int valor) {
-		this.pilha[this.indicePilha+1] = valor;
-		++this.indicePilha;
+		if (this.indicePilha < this.pilha.length - 1) {
+			this.pilha[this.indicePilha+1] = valor;
+			++this.indicePilha;
+		}
 	}
 	
 }
