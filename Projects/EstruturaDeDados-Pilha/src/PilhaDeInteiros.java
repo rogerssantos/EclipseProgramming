@@ -30,12 +30,17 @@ public class PilhaDeInteiros {
 		Arrays.copyOf(this.pilha, this.pilha.length-1);
 		--this.indicePilha;
 		return tamanho();
+		
+		//if (estaVazia()) {
+		//	return -1;
+		//}
+		//return this.pilha[this.indicePilha--];
 	}
 	
 	public void empilhar(int valor) {
 		if (this.indicePilha < this.pilha.length - 1) {
-			this.pilha[this.indicePilha+1] = valor;
 			++this.indicePilha;
+			this.pilha[this.indicePilha] = valor;
 		}
 	}
 	
