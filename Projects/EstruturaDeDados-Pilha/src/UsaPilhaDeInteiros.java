@@ -17,8 +17,11 @@ public class UsaPilhaDeInteiros{
 		System.out.println(p.tamanho());
 		System.out.println(p.desempilhar());
 		System.out.println(p.tamanho());
+		System.out.println(p.estaVazia());
 			while (p.estaVazia() == false) {
 				System.out.println(p.desempilhar());
 			}
+		System.out.println(p.tamanho());
+		System.out.println(p.estaVazia());
 	}
 }

@@ -11,10 +11,13 @@ public class PilhaDeInteiros {
 	}
 	
 	public boolean estaVazia() {
-		// error
-		if (this.indicePilha > -1);
+		if (this.indicePilha == -1) {
+			return true;
+		}
+		else {
 			return false;
-	}
+		}
+	};
 	
 	public int tamanho() {
 		return this.indicePilha+1;
