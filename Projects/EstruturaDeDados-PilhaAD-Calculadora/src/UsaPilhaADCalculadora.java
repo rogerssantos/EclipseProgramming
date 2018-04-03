@@ -19,14 +19,13 @@ public class UsaPilhaADCalculadora {
 		
 		PilhaADCalculadora p = new PilhaADCalculadora();
 		System.out.println("Empilhando...");
-		p.empilha("Laranja");
-		p.empilha("Maça");
-		p.empilha("Limão");
-		p.empilha("Melância");
-		p.empilha("Abóbora");
-		while (p.estaVazia() == false) {
-			System.out.println(p.desempilhar());
-		}
+		p.empilha("1");
+		p.empilha("2");
+		p.empilha("+");
+		p.empilha("15");
+		p.empilha("-");
+		p.empilha("10");
+		p.empilha("/");
 		
 	}
 }
