@@ -5,10 +5,10 @@ public class UsaPilhaDinamica {
 
 		PilhaDinamica p = new PilhaDinamica();
 		System.out.println("Empilhando...");
-		p.empilha(1);
-		p.empilha(2);
-		p.empilha(3);
-		p.empilha(4);
+		p.empilha(10);
+		p.empilha(20);
+		p.empilha(30);
+		p.empilha(40);
 		while (p.estaVazia() == false) {
 			System.out.println(p.desempilhar());
 		}
