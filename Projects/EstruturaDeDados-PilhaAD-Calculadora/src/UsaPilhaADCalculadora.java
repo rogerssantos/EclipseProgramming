@@ -26,6 +26,8 @@ public class UsaPilhaADCalculadora {
 		p.empilha("-");
 		p.empilha("10");
 		p.empilha("/");
+		p.empilha("5");
+		p.empilha("+");
 		
 	}
 }
