@@ -1,3 +1,4 @@
+import javax.swing.JOptionPane;
 
 public class UsaPilhaADCalculadora {
 
@@ -17,14 +18,14 @@ public class UsaPilhaADCalculadora {
 		//parciais, -1 na base e 9 no topo. O operador *, então, desempilha os dois e
 		//coloca -9 (= -1 * 9) no topo da pilha. Implemente para os operadores + - * / .
 		
-		PilhaADCalculadora p = new PilhaADCalculadora();
-		System.out.println("Empilhando...");
-		p.empilha("1");
-		p.empilha("2");
-		p.empilha("+");
-		p.empilha("10");
-		p.empilha("/");
-		p.empilha("5");
+		String continua;
 		
+		PilhaADCalculadora p = new PilhaADCalculadora();
+		do  {
+				continua = (JOptionPane.showInputDialog("Digite: "));
+				p.empilha(continua);
+				JOptionPane.showMessageDialog(null, continua);
+				
+		} while (continua != "007");
 	}
 }

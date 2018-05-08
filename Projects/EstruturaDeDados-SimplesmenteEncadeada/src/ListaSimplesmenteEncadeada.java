@@ -92,6 +92,11 @@ public class ListaSimplesmenteEncadeada {
 	private boolean isVazia() {
 		return primeiro == null;
 	}
+	
+	public Object mostraPrimeiro() {
+		No novo = new No();
+		return primeiro.getItem();
+	}
 }
 
 
