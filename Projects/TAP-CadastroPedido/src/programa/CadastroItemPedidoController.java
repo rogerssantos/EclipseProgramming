@@ -30,17 +30,18 @@ public class CadastroItemPedidoController {
 	private TableColumn<ItemPedido, Number> colQuantidade;
 	@FXML
 	private TableColumn<ItemPedido, Number> colValorTotalItemPedido;
+	@FXML
+	private TextField txtVlTotalPedido;
 	
 	private ArrayList<ItemPedido> lista = new ArrayList<ItemPedido>();
 	
 	@FXML
 	public void initialize() {
-		
 		colProduto.setCellValueFactory(cellData -> cellData.getValue().produtoProperty());
 		colValor.setCellValueFactory(cellData -> cellData.getValue().valorProperty());
 		colQuantidade.setCellValueFactory(cellData -> cellData.getValue().quantidadeProperty());
 		colValorTotalItemPedido.setCellValueFactory(cellData -> cellData.getValue().valorTotalItemPedidoProperty());
-
+		//txtVlTotalPedido;
 	}
 	
 	@FXML
@@ -53,6 +54,7 @@ public class CadastroItemPedidoController {
 			lista.add(a);
 			limpaTela();
 			tblItemPedido.setItems(FXCollections.observableArrayList(lista));
+			txtVlTotalPedido.setText(Double.toString(vlTotalItens()));
 		}
 	}
 	
@@ -80,14 +82,20 @@ public class CadastroItemPedidoController {
 	}
 	
 	private void mensagemErroValidacao(String erro) {
-		
 		Alert alert = new Alert(AlertType.ERROR);
 		alert.setHeaderText("Erro de validação");
 		alert.setContentText("Erro de validação no campo: " +erro+"\nPreenchimento obrigatório");
 		alert.initStyle(StageStyle.UNDECORATED);
 		alert.getDialogPane().setStyle("-fx-border-color: black; -fx-border-width: 3;");
 		alert.show();
-		
+	}
+	
+	public double vlTotalItens() {
+		int i;
+		double soma = 0;
+		for(i = 0; i < lista.size(); i++)
+			soma += lista.get(i).getValorTotalItemPedido();
+		return soma;
 	}
 	
 }
