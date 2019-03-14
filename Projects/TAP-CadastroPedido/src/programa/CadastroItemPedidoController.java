@@ -90,6 +90,7 @@ public class CadastroItemPedidoController {
 		alert.show();
 	}
 	
+	// soma valor total dos itens percorrendo a array
 	public double vlTotalItens() {
 		int i;
 		double soma = 0;
