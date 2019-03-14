@@ -81,10 +81,11 @@ public class CadastroItemPedidoController {
 		return true;
 	}
 	
+	// mensagem de erro campo n√£o preenchido
 	private void mensagemErroValidacao(String erro) {
 		Alert alert = new Alert(AlertType.ERROR);
-		alert.setHeaderText("Erro de validaÁ„o");
-		alert.setContentText("Erro de validaÁ„o no campo: " +erro+"\nPreenchimento obrigatÛrio");
+		alert.setHeaderText("Erro de valida√ß√£o");
+		alert.setContentText("Erro de valida√ß√£o no campo: " +erro+"\nPreenchimento obrigat√≥rio");
 		alert.initStyle(StageStyle.UNDECORATED);
 		alert.getDialogPane().setStyle("-fx-border-color: black; -fx-border-width: 3;");
 		alert.show();
