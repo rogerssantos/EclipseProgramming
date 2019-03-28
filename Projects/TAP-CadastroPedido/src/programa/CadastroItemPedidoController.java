@@ -74,22 +74,21 @@ public class CadastroItemPedidoController {
 	}
 	
 	@FXML
-	public void handle(MouseEvent event) throws IOException {
+	public void clickGridItemPedido(MouseEvent event) throws IOException {
 
 			Stage stageAbreItemPedido = new Stage();
 
-            FXMLLoader Loader = new FXMLLoader();
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("AbreItemPedido.fxml"));
 			Parent root = loader.load();
 			
             AbreItemPedido controller = loader.getController();
-            AbreItemPedido.setData(""+ItemPedido.getProduto(), employee.getSelectionModel().getSelectedItem().getName(),""+employee.getSelectionModel().getSelectedItem().getSalary());
-            
+            ItemPedido i = ((TableView<ItemPedido>) event.getSource()).getSelectionModel().getSelectedItem(); 
+            controller.setItemPedido(i);
             stageAbreItemPedido.setScene(new Scene(root));
             stageAbreItemPedido.initOwner(img.getScene().getWindow());
 			stageAbreItemPedido.show();
 			
-            Parent p = Loader.getRoot();
+            Parent p = loader.getRoot();
             Stage stage = new Stage();
             stage.setScene(new Scene(p));
             stage.show();
@@ -187,17 +186,6 @@ public class CadastroItemPedidoController {
             return row ;
         });
 	
-        //table.getColumns().add(column("Item", ItemPedido::nameProperty));
-        //table.getColumns().add(column("Value", ItemPedido::valueProperty));
-
-//        Random rng = new Random();
-  //      for (int i = 1 ; i <= 50 ; i++) {
-    //        table.getItems().add(new Item("Item "+i, rng.nextInt(1000)));
-      //  }
-
-        //Scene scene = new Scene(table);
-        //primaryStage.setScene(scene);
-       // primaryStage.show();
     }
 	
 	

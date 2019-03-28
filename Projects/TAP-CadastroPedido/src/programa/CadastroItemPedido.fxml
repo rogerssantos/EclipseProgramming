@@ -73,7 +73,7 @@
                         <Insets left="10.0" top="10.0" />
                      </VBox.margin>
                   </Button>
-                  <TableView fx:id="tblItemPedido" onMouseClicked="#handle" prefHeight="238.0" prefWidth="550.0">
+                  <TableView fx:id="tblItemPedido" onMouseClicked="#clickGridItemPedido" prefHeight="238.0" prefWidth="550.0">
                     <columns>
                       <TableColumn fx:id="colProduto" prefWidth="186.0" text="Produto" />
                       <TableColumn fx:id="colValor" minWidth="0.0" prefWidth="67.0" text="Valor" />

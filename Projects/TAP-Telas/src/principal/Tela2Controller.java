@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 import domain.Cidade;
 import domain.Estado;
+import javafx.beans.value.ChangeListener;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 
 public class Tela2Controller {
@@ -18,6 +18,17 @@ public class Tela2Controller {
 	ComboBox<Estado> cbEstado;
 	@FXML
 	ComboBox<Cidade> cbCidade;
+	
+	
+	@FXML
+	public void initialize() {
+		criaEstados();
+		criaCidades();
+		cbEstado.setItems(FXCollections.observableArrayList(listaEstado));
+		eventoChangeComboUF();
+		cbEstado.getSelectionModel().select(0);
+		filtraCidades();
+	}
 	
 	private void criaEstados() {
 		listaEstado.add(new Estado("SC"));
@@ -32,12 +43,22 @@ public class Tela2Controller {
 		listaCidade.add(new Cidade("Guaiba", listaEstado.get(1)));
 	}
 	
-	@FXML
-	public void initialize() {
-		criaEstados();
-		criaCidades();
-		cbEstado.setItems(FXCollections.observableArrayList(listaEstado));
-		cbCidade.setItems(FXCollections.observableArrayList(listaCidade));
+	private void filtraCidades() {
+		Estado ufSelecionada = cbEstado.getSelectionModel().getSelectedItem();
+		ArrayList<Cidade> nova = new ArrayList<Cidade>();
+		for (Cidade c : listaCidade) {
+			if(c.getEstado().getNome().equals(ufSelecionada.getNome()))
+				nova.add(c);
+		}
+		cbCidade.setItems(FXCollections.observableArrayList(nova));
+	}
+	
+	private void eventoChangeComboUF() {
+		cbEstado.valueProperty().addListener(new ChangeListener<Estado>() {
+			public void changed(javafx.beans.value.ObservableValue<? extends Estado> observable, Estado oldValue, Estado newValue) {
+				filtraCidades();
+			};
+		});
 	}
 
 }

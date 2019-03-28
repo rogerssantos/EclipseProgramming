@@ -15,13 +15,13 @@
             <VBox BorderPane.alignment="CENTER">
                <children>
                   <Label text="Produto:" />
-                  <TextField />
+                  <TextField fx:id="txtProduto" />
                   <Label text="Valor:" />
-                  <TextField />
+                  <TextField fx:id="txtValor" />
                   <Label text="Quantidade:" />
-                  <TextField />
+                  <TextField fx:id="txtQuantidade" />
                   <Label text="Valor Total:" />
-                  <TextField />
+                  <TextField fx:id="txtValorTotal" />
                </children>
             </VBox>
          </center>
