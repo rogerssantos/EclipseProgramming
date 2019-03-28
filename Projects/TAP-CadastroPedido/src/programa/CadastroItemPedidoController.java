@@ -2,18 +2,32 @@ package programa;
 
 import java.util.ArrayList;
 
+import java.io.File;
+import java.io.IOException;
+
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.stage.StageStyle;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import model.ItemPedido;
 
 public class CadastroItemPedidoController {
-
+	
+	@FXML
+	private ImageView img;
 	@FXML
 	private TextField txtProduto;
 	@FXML
@@ -43,6 +57,45 @@ public class CadastroItemPedidoController {
 		colValorTotalItemPedido.setCellValueFactory(cellData -> cellData.getValue().valorTotalItemPedidoProperty());
 		//txtVlTotalPedido;
 	}
+	
+	//@FXML
+	public void clickAbreItemPedido() {
+		try {
+			Stage stageAbreItemPedido = new Stage();
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("AbreItemPedido.fxml"));
+			Parent root = loader.load();
+			AbreItemPedido controller = loader.getController();
+			stageAbreItemPedido.setScene(new Scene(root));
+			stageAbreItemPedido.initOwner(img.getScene().getWindow());
+			stageAbreItemPedido.show();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@FXML
+	public void handle(MouseEvent event) throws IOException {
+
+			Stage stageAbreItemPedido = new Stage();
+
+            FXMLLoader Loader = new FXMLLoader();
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("AbreItemPedido.fxml"));
+			Parent root = loader.load();
+			
+            AbreItemPedido controller = loader.getController();
+            AbreItemPedido.setData(""+ItemPedido.getProduto(), employee.getSelectionModel().getSelectedItem().getName(),""+employee.getSelectionModel().getSelectedItem().getSalary());
+            
+            stageAbreItemPedido.setScene(new Scene(root));
+            stageAbreItemPedido.initOwner(img.getScene().getWindow());
+			stageAbreItemPedido.show();
+			
+            Parent p = Loader.getRoot();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(p));
+            stage.show();
+        
+    }
+
 	
 	@FXML
 	public void cadastra() {
@@ -99,5 +152,53 @@ public class CadastroItemPedidoController {
 			soma += lista.get(i).getValorTotalItemPedido();
 		return soma;
 	}
+
+
+	@FXML
+	public void abreImagem() {
+		File f = selecionaImagem();
+		if (f != null) {
+			Image i = new Image(f.toURI().toString());
+			img.setImage(i);
+			img.setFitWidth(i.getWidth());
+			img.setFitHeight(i.getHeight());
+		}
+	}
+
+	private File selecionaImagem() {
+		FileChooser dialogo = new FileChooser();
+		dialogo.getExtensionFilters().add(new FileChooser.ExtensionFilter("Imagens", "*.jpg", "*.JPG", "*.png", "*.PNG",
+				"*.gif", "*.GIF", "*.bmp", "*.BMP"));
+		dialogo.setInitialDirectory(new File("C:\\Users\\roger\\OneDrive\\Imagens\\Wallpapers"));
+		return dialogo.showOpenDialog(null);
+	}
+	
+	@FXML
+    public void selecionaLinha() {
+        TableView<ItemPedido> table = new TableView<>();
+        table.setRowFactory(tv -> {
+            TableRow<ItemPedido> row = new TableRow<>();
+            row.setOnMouseClicked(event -> {
+                if (event.getClickCount() == 2 && (! row.isEmpty()) ) {
+                	ItemPedido rowData = row.getItem();
+                    System.out.println("Double click on: "+rowData.getProduto());
+                }
+            });
+            return row ;
+        });
+	
+        //table.getColumns().add(column("Item", ItemPedido::nameProperty));
+        //table.getColumns().add(column("Value", ItemPedido::valueProperty));
+
+//        Random rng = new Random();
+  //      for (int i = 1 ; i <= 50 ; i++) {
+    //        table.getItems().add(new Item("Item "+i, rng.nextInt(1000)));
+      //  }
+
+        //Scene scene = new Scene(table);
+        //primaryStage.setScene(scene);
+       // primaryStage.show();
+    }
+	
 	
 }

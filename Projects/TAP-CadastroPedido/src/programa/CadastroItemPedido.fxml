@@ -6,6 +6,7 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
@@ -57,12 +58,22 @@
                      <VBox.margin>
                         <Insets left="10.0" right="10.0" top="10.0" />
                      </VBox.margin></TextField>
-                  <Button mnemonicParsing="false" onAction="#cadastra" text="Adicionar">
+                  <Button mnemonicParsing="false" onAction="#abreImagem" text="Selecione a imagem...">
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Button>
+                  <ImageView fx:id="img" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <VBox.margin>
+                        <Insets left="10.0" />
+                     </VBox.margin>
+                  </ImageView>
+                  <Button mnemonicParsing="false" onAction="#cadastra" text="Adicionar Item">
                      <VBox.margin>
                         <Insets left="10.0" top="10.0" />
                      </VBox.margin>
                   </Button>
-                  <TableView fx:id="tblItemPedido" prefHeight="238.0" prefWidth="550.0">
+                  <TableView fx:id="tblItemPedido" onMouseClicked="#handle" prefHeight="238.0" prefWidth="550.0">
                     <columns>
                       <TableColumn fx:id="colProduto" prefWidth="186.0" text="Produto" />
                       <TableColumn fx:id="colValor" minWidth="0.0" prefWidth="67.0" text="Valor" />
