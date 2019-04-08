@@ -159,8 +159,8 @@ public class CadastroItemPedidoController {
 		if (f != null) {
 			Image i = new Image(f.toURI().toString());
 			img.setImage(i);
-			img.setFitWidth(i.getWidth());
-			img.setFitHeight(i.getHeight());
+			img.setFitWidth(250);
+			img.setFitHeight(250);
 		}
 	}
 
