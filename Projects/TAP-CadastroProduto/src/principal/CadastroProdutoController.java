@@ -75,7 +75,9 @@ public class CadastroProdutoController {
 		txtProduto.setText("");
 		txtValor.setText("");
 		txtEstoque.setText("");
-		//txtUnidade.setText("");
+		
+		cbUnidade.getSelectionModel().select(-1);
+		
 		txtProduto.requestFocus();
 	}
 	
@@ -108,7 +110,7 @@ public class CadastroProdutoController {
 		
 		BufferedReader uni = null;
 		try {
-			uni = new BufferedReader(new FileReader(".\\src\\src\\Unidade.txt"));
+			uni = new BufferedReader(new FileReader(".\\src\\Unidade.txt"));
 		} catch (FileNotFoundException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -138,10 +140,11 @@ public class CadastroProdutoController {
 	
 	public void gravaProduto(String produto, String valor, String estoque, String unidade) {
 		try{
-			FileWriter fw = new FileWriter(".\\\\src\\\\src\\\\Produto.txt", true);
+			FileWriter fw = new FileWriter(".\\src\\Produto.txt", true);
 			BufferedWriter bf = new BufferedWriter(fw);
 			bf.append(produto + ";" + valor + ";" + estoque + ";" + unidade + "\n");
 			bf.close();
+			fw.close();
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -150,10 +153,11 @@ public class CadastroProdutoController {
 	@FXML
 	public void resetCadastroProduto() {
 		try{
-			FileWriter fw = new FileWriter(".\\\\src\\\\src\\\\Produto.txt", false);
+			FileWriter fw = new FileWriter(".\\src\\Produto.txt", false);
 			BufferedWriter bf = new BufferedWriter(fw);
 			fw.write("");
 			bf.close();
+			fw.close();
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -167,7 +171,7 @@ public class CadastroProdutoController {
 		
 		BufferedReader produtos = null;
 		try {
-			produtos = new BufferedReader(new FileReader(".\\\\src\\\\src\\\\Produto.txt"));
+			produtos = new BufferedReader(new FileReader(".\\src\\Produto.txt"));
 		} catch (FileNotFoundException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
