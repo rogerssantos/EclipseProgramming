@@ -2,8 +2,12 @@
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="java.text.DecimalFormat"/>
 <fullyQualifiedTypeName name="sun.invoke.empty.Empty"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="objetos_compostos.Dvd"/>
 <fullyQualifiedTypeName name="javax.swing.text.StyledEditorKit.ForegroundAction"/>
 <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
+<fullyQualifiedTypeName name="java.sql.SQLException"/>
+<fullyQualifiedTypeName name="java.sql.ResultSet"/>
+<fullyQualifiedTypeName name="model.Agencia"/>
+<fullyQualifiedTypeName name="dao.AgenciaDAO"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
 </qualifiedTypeNameHistroy>

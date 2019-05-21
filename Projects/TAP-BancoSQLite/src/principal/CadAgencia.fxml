@@ -17,11 +17,10 @@
    <children>
       <BorderPane>
          <bottom>
-            <TableView fx:id="tblAluno" BorderPane.alignment="CENTER">
+            <TableView fx:id="tblAgencia" BorderPane.alignment="CENTER">
               <columns>
-                <TableColumn fx:id="colNome" prefWidth="267.0" text="Número" />
-                <TableColumn fx:id="colDisciplina" minWidth="0.0" prefWidth="240.0" text="Cidade" />
-                  <TableColumn fx:id="colDisciplina1" minWidth="0.0" prefWidth="148.0" text="Status" />
+                <TableColumn fx:id="colNumero" prefWidth="267.0" text="Número" />
+                <TableColumn fx:id="colCidade" minWidth="0.0" prefWidth="240.0" text="Cidade" />
               </columns>
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -68,7 +67,11 @@
                               <Insets left="10.0" right="10.0" />
                            </VBox.margin>
                         </CheckBox>
-                        <Button mnemonicParsing="false" onAction="#inserir" text="fodase" />
+                        <Button mnemonicParsing="false" onAction="#inserir" text="Adicionar">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </VBox.margin>
+                        </Button>
                      </children>
                      <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
