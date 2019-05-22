@@ -20,7 +20,7 @@ public class AgenciaDAO {
 		}
 	}
 	
-	public static ArrayList<Agencia> listaTudo(){
+	public ArrayList<Agencia> listaTudo(){
 		ArrayList<Agencia> agencias = new ArrayList<Agencia>();
 		String sql = "select numero, cidade from agencia where status = 'A'";
 		try{
@@ -36,6 +36,19 @@ public class AgenciaDAO {
 			e.printStackTrace();
 		}
 		return agencias;
+	}
+	
+	public void atualizar(Agencia a) {
+		String sql = "update agencia set numero = ?, cidade = ? where id = ?";
+		try {
+			PreparedStatement ps = Constants.conn.prepareStatement(sql);
+			ps.setString(1, a.getNumero());
+			ps.setString(2, a.getCidade());
+			ps.setInt(3, a.getId());
+			ps.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 }

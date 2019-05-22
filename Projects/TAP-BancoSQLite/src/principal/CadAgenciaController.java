@@ -1,8 +1,5 @@
 package principal;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -14,9 +11,12 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import model.Agencia;
 
 public class CadAgenciaController {
+	
+	public char acao;
 	
 	@FXML TextField txtNumero;
 	@FXML TextField txtCidade;
@@ -24,6 +24,7 @@ public class CadAgenciaController {
 	@FXML CheckBox ckInativar;
 	@FXML Button btAcao;
 	@FXML TableView<Agencia> tblAgencia;
+	@FXML TableColumn<Agencia, Double> colId;
 	@FXML TableColumn<Agencia, String> colNumero;
 	@FXML TableColumn<Agencia, String> colCidade;
 	
@@ -32,12 +33,18 @@ public class CadAgenciaController {
 	private AgenciaDAO dao = new AgenciaDAO();
 	
 	@FXML
-	public void inserir() {
+	public void btAcao() {
 		Agencia a = tela4Agencia();
-		dao.inserir(a);
+		if (acao != 'A') {
+			dao.inserir(a);
+		} else {
+			dao.atualizar(a);
+		}
 		limpaTela();
-		lista = AgenciaDAO.listaTudo();
+		lista = dao.listaTudo();
 		tblAgencia.setItems(FXCollections.observableArrayList(lista));
+		btAcao.setText("Novo");
+		acao = 'N';
 	}
 	
 	private Agencia tela4Agencia() {
@@ -47,18 +54,16 @@ public class CadAgenciaController {
 		return a;
 	}
 	
-	private void agencia4Tela(Agencia a) {
-		txtNumero.setText(a.getNumero());
-		txtCidade.setText(a.getCidade());
-		
-	}
-	
 	@FXML
 	public void initialize() {
 		//lerConfig();
+		btAcao.setText("Novo");
+		//TableColumn<Person, Number> ageColumn = new TableColumn<Person, Number>("Age");
+
+		colId.setCellValueFactory(cellData -> cellData.getValue().idProperty());
 		colNumero.setCellValueFactory(cellData -> cellData.getValue().numeroProperty());
 		colCidade.setCellValueFactory(cellData -> cellData.getValue().cidadeProperty());
-		lista = AgenciaDAO.listaTudo();
+		lista = dao.listaTudo();
 		tblAgencia.setItems(FXCollections.observableArrayList(lista));
 	}
 
@@ -67,4 +72,16 @@ public class CadAgenciaController {
 		txtCidade.setText("");
 		txtNumero.requestFocus();
 	}
+	
+	@FXML
+	public void clickLinha(MouseEvent event) throws IOException {
+		btAcao.setText("Atualizar");
+		@SuppressWarnings("unchecked")
+		Agencia a = ((TableView<Agencia>) event.getSource()).getSelectionModel().getSelectedItem();
+		a.getId();
+		txtNumero.setText(a.getNumero());
+        txtCidade.setText(a.getCidade());
+        acao = 'A';
+    }
+	
 }

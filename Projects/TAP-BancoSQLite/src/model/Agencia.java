@@ -1,13 +1,12 @@
 package model;
 
-import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public class Agencia {
 	
-	private IntegerProperty id = new SimpleIntegerProperty(0);
+	private  SimpleIntegerProperty id = new SimpleIntegerProperty(0);
 	private StringProperty numero = new SimpleStringProperty("");
 	private StringProperty cidade = new SimpleStringProperty("");
 	
@@ -16,47 +15,47 @@ public class Agencia {
 		return getNumero()+" - "+getCidade();
 	}
 
-	public final IntegerProperty idProperty() {
+	public SimpleIntegerProperty idProperty() {
 		return this.id;
 	}
 	
 
-	public final int getId() {
+	public int getId() {
 		return this.idProperty().get();
 	}
 	
 
-	public final void setId(final int id) {
+	public void setId(int id) {
 		this.idProperty().set(id);
 	}
 	
 
-	public final StringProperty numeroProperty() {
+	public StringProperty numeroProperty() {
 		return this.numero;
 	}
 	
 
-	public final String getNumero() {
+	public String getNumero() {
 		return this.numeroProperty().get();
 	}
 	
 
-	public final void setNumero(final String numero) {
+	public void setNumero(final String numero) {
 		this.numeroProperty().set(numero);
 	}
 	
 
-	public final StringProperty cidadeProperty() {
+	public StringProperty cidadeProperty() {
 		return this.cidade;
 	}
 	
 
-	public final String getCidade() {
+	public String getCidade() {
 		return this.cidadeProperty().get();
 	}
 	
 
-	public final void setCidade(final String cidade) {
+	public void setCidade(final String cidade) {
 		this.cidadeProperty().set(cidade);
 	}
 	
