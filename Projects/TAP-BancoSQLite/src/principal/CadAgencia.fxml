@@ -22,6 +22,7 @@
                   <TableColumn fx:id="colId" prefWidth="86.0" text="Id" visible="false" />
                 <TableColumn fx:id="colNumero" prefWidth="295.0" text="Número" />
                 <TableColumn fx:id="colCidade" minWidth="0.0" prefWidth="393.0" text="Cidade" />
+                  <TableColumn fx:id="colStatus" minWidth="0.0" prefWidth="393.0" text="Status" visible="false" />
               </columns>
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -62,9 +63,9 @@
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </padding>
                         </HBox>
-                        <CheckBox disable="true" mnemonicParsing="false" text="Inativar">
+                        <CheckBox fx:id="ckInativar" disable="true" mnemonicParsing="false" text="Inativar">
                            <VBox.margin>
-                              <Insets left="10.0" right="10.0" />
+                              <Insets bottom="10.0" left="10.0" right="10.0" />
                            </VBox.margin>
                         </CheckBox>
                         <HBox>

@@ -22,7 +22,7 @@ public class AgenciaDAO {
 	
 	public ArrayList<Agencia> listaTudo(){
 		ArrayList<Agencia> agencias = new ArrayList<Agencia>();
-		String sql = "select numero, cidade, id from agencia where status = 'A'";
+		String sql = "select numero, cidade, id, status from agencia where status = 'A'";
 		try{
 			PreparedStatement ps = Constants.conn.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
@@ -31,6 +31,7 @@ public class AgenciaDAO {
 				a.setNumero(rs.getString("numero"));
 				a.setCidade(rs.getString("cidade"));
 				a.setId(rs.getInt("id"));
+				a.setStatus(rs.getString("status"));
 				agencias.add(a);
 			}
 		}catch(Exception e){
@@ -40,12 +41,13 @@ public class AgenciaDAO {
 	}
 	
 	public void atualizar(Agencia a) {
-		String sql = "update agencia set numero = ?, cidade = ? where id = ?";
+		String sql = "update agencia set numero = ?, cidade = ?, status = ? where id = ?";
 		try {
 			PreparedStatement ps = Constants.conn.prepareStatement(sql);
 			ps.setString(1, a.getNumero());
 			ps.setString(2, a.getCidade());
-			ps.setInt(3, a.getId());
+			ps.setString(3, a.getStatus());
+			ps.setInt(4, a.getId());
 			ps.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();

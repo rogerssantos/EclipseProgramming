@@ -30,8 +30,10 @@ public class CadAgenciaController {
 	@FXML TableColumn<Agencia, Integer> colId;
 	@FXML TableColumn<Agencia, String> colNumero;
 	@FXML TableColumn<Agencia, String> colCidade;
+	@FXML TableColumn<Agencia, String> colStatus;
 	
 	private int id;
+	private String status;
 	
 	private ArrayList<Agencia> lista;
 	
@@ -43,26 +45,34 @@ public class CadAgenciaController {
 		if (acao != ACAO_ATUALIZAR) {
 			dao.inserir(a);
 		} else {
+			if (!ckInativar.isSelected()) {
+				a.setStatus("A");
+			}
 			dao.atualizar(a);
+			btCancelar.setDisable(true);
 		}
 		limpaTela();
 		lista = dao.listaTudo();
 		tblAgencia.setItems(FXCollections.observableArrayList(lista));
 		btAcao.setText("Novo");
+		
 		acao = ACAO_NOVO;
-		btCancelar.setDisable(true);
 	}
 
 	@FXML
 	public void btCancelar() {
 		limpaTela();
 		btCancelar.setDisable(true);
+		acao = ACAO_NOVO;
 	}
 	
 	private Agencia tela4Agencia() {
 		Agencia a = new Agencia();
 		a.setNumero(txtNumero.getText());
 		a.setCidade(txtCidade.getText());
+		if (status != "A") {
+			ckInativar.setSelected(false);
+		}
 		a.setId(id);
 		return a;
 	}
@@ -74,6 +84,7 @@ public class CadAgenciaController {
 		colId.setCellValueFactory(cellData -> cellData.getValue().idProperty().asObject());
 		colNumero.setCellValueFactory(cellData -> cellData.getValue().numeroProperty());
 		colCidade.setCellValueFactory(cellData -> cellData.getValue().cidadeProperty());
+		colStatus.setCellValueFactory(cellData -> cellData.getValue().statusProperty());
 		lista = dao.listaTudo();
 		tblAgencia.setItems(FXCollections.observableArrayList(lista));
 	}
@@ -82,6 +93,7 @@ public class CadAgenciaController {
 		txtNumero.setText("");
 		txtCidade.setText("");
 		txtNumero.requestFocus();
+		ckInativar.setDisable(true);
 		btAcao.setText("Novo");
 	}
 	
@@ -91,9 +103,11 @@ public class CadAgenciaController {
 		@SuppressWarnings("unchecked")
 		Agencia a = ((TableView<Agencia>) event.getSource()).getSelectionModel().getSelectedItem();
 		id = a.getId();
+		status = a.getStatus();
 		txtNumero.setText(a.getNumero());
         txtCidade.setText(a.getCidade());
         acao = ACAO_ATUALIZAR;
+        ckInativar.setDisable(false);
         btCancelar.setDisable(false);
     }
 	
