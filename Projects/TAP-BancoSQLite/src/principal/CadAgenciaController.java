@@ -16,17 +16,22 @@ import model.Agencia;
 
 public class CadAgenciaController {
 	
-	public char acao;
+	private final int ACAO_ATUALIZAR = 1;
+	private final int ACAO_NOVO = 2;
+	public int acao;
 	
 	@FXML TextField txtNumero;
 	@FXML TextField txtCidade;
 	@FXML TextField txtFiltro;
 	@FXML CheckBox ckInativar;
 	@FXML Button btAcao;
+	@FXML Button btCancelar;
 	@FXML TableView<Agencia> tblAgencia;
-	@FXML TableColumn<Agencia, Double> colId;
+	@FXML TableColumn<Agencia, Integer> colId;
 	@FXML TableColumn<Agencia, String> colNumero;
 	@FXML TableColumn<Agencia, String> colCidade;
+	
+	private int id;
 	
 	private ArrayList<Agencia> lista;
 	
@@ -35,7 +40,7 @@ public class CadAgenciaController {
 	@FXML
 	public void btAcao() {
 		Agencia a = tela4Agencia();
-		if (acao != 'A') {
+		if (acao != ACAO_ATUALIZAR) {
 			dao.inserir(a);
 		} else {
 			dao.atualizar(a);
@@ -44,13 +49,21 @@ public class CadAgenciaController {
 		lista = dao.listaTudo();
 		tblAgencia.setItems(FXCollections.observableArrayList(lista));
 		btAcao.setText("Novo");
-		acao = 'N';
+		acao = ACAO_NOVO;
+		btCancelar.setDisable(true);
+	}
+
+	@FXML
+	public void btCancelar() {
+		limpaTela();
+		btCancelar.setDisable(true);
 	}
 	
 	private Agencia tela4Agencia() {
 		Agencia a = new Agencia();
 		a.setNumero(txtNumero.getText());
 		a.setCidade(txtCidade.getText());
+		a.setId(id);
 		return a;
 	}
 	
@@ -58,9 +71,7 @@ public class CadAgenciaController {
 	public void initialize() {
 		//lerConfig();
 		btAcao.setText("Novo");
-		//TableColumn<Person, Number> ageColumn = new TableColumn<Person, Number>("Age");
-
-		colId.setCellValueFactory(cellData -> cellData.getValue().idProperty());
+		colId.setCellValueFactory(cellData -> cellData.getValue().idProperty().asObject());
 		colNumero.setCellValueFactory(cellData -> cellData.getValue().numeroProperty());
 		colCidade.setCellValueFactory(cellData -> cellData.getValue().cidadeProperty());
 		lista = dao.listaTudo();
@@ -71,6 +82,7 @@ public class CadAgenciaController {
 		txtNumero.setText("");
 		txtCidade.setText("");
 		txtNumero.requestFocus();
+		btAcao.setText("Novo");
 	}
 	
 	@FXML
@@ -78,10 +90,11 @@ public class CadAgenciaController {
 		btAcao.setText("Atualizar");
 		@SuppressWarnings("unchecked")
 		Agencia a = ((TableView<Agencia>) event.getSource()).getSelectionModel().getSelectedItem();
-		a.getId();
+		id = a.getId();
 		txtNumero.setText(a.getNumero());
         txtCidade.setText(a.getCidade());
-        acao = 'A';
+        acao = ACAO_ATUALIZAR;
+        btCancelar.setDisable(false);
     }
 	
 }

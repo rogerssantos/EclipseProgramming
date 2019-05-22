@@ -22,7 +22,7 @@ public class AgenciaDAO {
 	
 	public ArrayList<Agencia> listaTudo(){
 		ArrayList<Agencia> agencias = new ArrayList<Agencia>();
-		String sql = "select numero, cidade from agencia where status = 'A'";
+		String sql = "select numero, cidade, id from agencia where status = 'A'";
 		try{
 			PreparedStatement ps = Constants.conn.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
@@ -30,6 +30,7 @@ public class AgenciaDAO {
 				Agencia a = new Agencia();
 				a.setNumero(rs.getString("numero"));
 				a.setCidade(rs.getString("cidade"));
+				a.setId(rs.getInt("id"));
 				agencias.add(a);
 			}
 		}catch(Exception e){
