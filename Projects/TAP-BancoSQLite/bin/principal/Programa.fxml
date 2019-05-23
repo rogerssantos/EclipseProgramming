@@ -16,7 +16,7 @@
          <top>
             <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <Label contentDisplay="CENTER" text="Sistama de Banco Brasileiro (SBB)">
+                  <Label contentDisplay="CENTER" text="Sistema de Banco Brasileiro (SBB)">
                      <font>
                         <Font size="25.0" />
                      </font>

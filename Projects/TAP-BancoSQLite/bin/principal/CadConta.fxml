@@ -1,17 +1,124 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.DatePicker?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="96.0" prefWidth="232.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="principal.CadContaController">
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="principal.CadContaController">
    <children>
-      <VBox prefHeight="238.0" prefWidth="209.0">
-         <children>
-            <Label text="Data de nascimento:" />
-            <DatePicker />
-         </children>
-      </VBox>
+      <BorderPane>
+         <bottom>
+            <TableView fx:id="tblCorrentista" onMouseClicked="#clickLinha" BorderPane.alignment="CENTER">
+              <columns>
+                  <TableColumn fx:id="colId" prefWidth="86.0" text="Id" visible="false" />
+                <TableColumn fx:id="colAgencia" prefWidth="204.0" text="Agencia" />
+                <TableColumn fx:id="colCorrentista" minWidth="0.0" prefWidth="275.0" text="Correntista" />
+                  <TableColumn fx:id="colSaldo" minWidth="0.0" prefWidth="150.0" text="Saldo" />
+                  <TableColumn fx:id="colStatus" minWidth="0.0" prefWidth="393.0" text="Status" visible="false" />
+              </columns>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+               <BorderPane.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" />
+               </BorderPane.margin>
+            </TableView>
+         </bottom>
+         <center>
+            <AnchorPane BorderPane.alignment="CENTER">
+               <children>
+                  <VBox>
+                     <children>
+                        <HBox>
+                           <children>
+                              <Label text="Agência">
+                                 <HBox.margin>
+                                    <Insets left="10.0" right="10.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <TextField fx:id="txtAgencia" />
+                           </children>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </HBox>
+                        <HBox>
+                           <children>
+                              <Label text="Correntista">
+                                 <HBox.margin>
+                                    <Insets left="10.0" right="10.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <TextField fx:id="txtCorrentista" />
+                           </children>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </HBox>
+                        <HBox>
+                           <children>
+                              <Label text="Saldo">
+                                 <HBox.margin>
+                                    <Insets left="10.0" right="10.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <TextField fx:id="txtSaldo" />
+                           </children>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </HBox>
+                        <CheckBox fx:id="ckInativar" disable="true" mnemonicParsing="false" text="Inativar">
+                           <VBox.margin>
+                              <Insets left="10.0" />
+                           </VBox.margin>
+                        </CheckBox>
+                        <HBox>
+                           <children>
+                              <Button fx:id="btAcao" mnemonicParsing="false" onAction="#btAcao" text="Adicionar">
+                                 <HBox.margin>
+                                    <Insets left="10.0" right="10.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button fx:id="btCancelar" disable="true" mnemonicParsing="false" onAction="#btCancelar" text="Cancelar">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </VBox.margin></HBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </VBox>
+               </children>
+            </AnchorPane>
+         </center>
+         <top>
+            <AnchorPane BorderPane.alignment="CENTER">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="212.0" text="Cadastro de Conta" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font></Label>
+               </children>
+               <BorderPane.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </BorderPane.margin>
+            </AnchorPane>
+         </top>
+      </BorderPane>
    </children>
 </AnchorPane>

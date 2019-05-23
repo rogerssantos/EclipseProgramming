@@ -6,7 +6,7 @@ import javafx.beans.property.StringProperty;
 
 public class Agencia {
 	
-	private  SimpleIntegerProperty id = new SimpleIntegerProperty(0);
+	private SimpleIntegerProperty id = new SimpleIntegerProperty(0);
 	private StringProperty numero = new SimpleStringProperty("");
 	private StringProperty cidade = new SimpleStringProperty("");
 	private StringProperty status = new SimpleStringProperty("");
