@@ -52,10 +52,11 @@ public class Agencia {
 		this.cidadeProperty().set(cidade);
 	}
 	
+	
 	public StringProperty statusProperty() {
 		return this.status;
 	}
-
+	
 	public String getStatus() {
 		return this.statusProperty().get();
 	}
@@ -63,6 +64,4 @@ public class Agencia {
 	public void setStatus(final String status) {
 		this.statusProperty().set(status);
 	}
-	
-	
 }

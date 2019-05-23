@@ -30,10 +30,8 @@ public class CadAgenciaController {
 	@FXML TableColumn<Agencia, Integer> colId;
 	@FXML TableColumn<Agencia, String> colNumero;
 	@FXML TableColumn<Agencia, String> colCidade;
-	@FXML TableColumn<Agencia, String> colStatus;
 	
 	private int id;
-	private String status;
 	
 	private ArrayList<Agencia> lista;
 	
@@ -42,12 +40,10 @@ public class CadAgenciaController {
 	@FXML
 	public void btAcao() {
 		Agencia a = tela4Agencia();
+		System.out.println(" - " + a.getStatus());
 		if (acao != ACAO_ATUALIZAR) {
 			dao.inserir(a);
 		} else {
-			if (!ckInativar.isSelected()) {
-				a.setStatus("A");
-			}
 			dao.atualizar(a);
 			btCancelar.setDisable(true);
 		}
@@ -62,6 +58,7 @@ public class CadAgenciaController {
 	@FXML
 	public void btCancelar() {
 		limpaTela();
+		ckInativar.setDisable(true);
 		btCancelar.setDisable(true);
 		acao = ACAO_NOVO;
 	}
@@ -70,8 +67,10 @@ public class CadAgenciaController {
 		Agencia a = new Agencia();
 		a.setNumero(txtNumero.getText());
 		a.setCidade(txtCidade.getText());
-		if (status != "A") {
-			ckInativar.setSelected(false);
+		if (ckInativar.isSelected()) {
+			a.setStatus("I");
+		} else {
+			a.setStatus("A");
 		}
 		a.setId(id);
 		return a;
@@ -79,12 +78,10 @@ public class CadAgenciaController {
 	
 	@FXML
 	public void initialize() {
-		//lerConfig();
 		btAcao.setText("Novo");
 		colId.setCellValueFactory(cellData -> cellData.getValue().idProperty().asObject());
 		colNumero.setCellValueFactory(cellData -> cellData.getValue().numeroProperty());
 		colCidade.setCellValueFactory(cellData -> cellData.getValue().cidadeProperty());
-		colStatus.setCellValueFactory(cellData -> cellData.getValue().statusProperty());
 		lista = dao.listaTudo();
 		tblAgencia.setItems(FXCollections.observableArrayList(lista));
 	}
@@ -95,6 +92,7 @@ public class CadAgenciaController {
 		txtNumero.requestFocus();
 		ckInativar.setDisable(true);
 		btAcao.setText("Novo");
+		ckInativar.setSelected(false);
 	}
 	
 	@FXML
@@ -103,7 +101,6 @@ public class CadAgenciaController {
 		@SuppressWarnings("unchecked")
 		Agencia a = ((TableView<Agencia>) event.getSource()).getSelectionModel().getSelectedItem();
 		id = a.getId();
-		status = a.getStatus();
 		txtNumero.setText(a.getNumero());
         txtCidade.setText(a.getCidade());
         acao = ACAO_ATUALIZAR;
