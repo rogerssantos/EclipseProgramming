@@ -20,9 +20,8 @@
             <TableView fx:id="tblCorrentista" onMouseClicked="#clickLinha" BorderPane.alignment="CENTER">
               <columns>
                   <TableColumn fx:id="colId" prefWidth="86.0" text="Id" visible="false" />
-                <TableColumn fx:id="colAgencia" prefWidth="204.0" text="Agencia" />
-                <TableColumn fx:id="colCorrentista" minWidth="0.0" prefWidth="275.0" text="Correntista" />
-                  <TableColumn fx:id="colSaldo" minWidth="0.0" prefWidth="150.0" text="Saldo" />
+                <TableColumn fx:id="colNome" minWidth="0.0" prefWidth="275.0" text="Nome" />
+                <TableColumn fx:id="colNascimento" prefWidth="204.0" text="Nascimento" />
                   <TableColumn fx:id="colStatus" minWidth="0.0" prefWidth="393.0" text="Status" visible="false" />
               </columns>
                <padding>
@@ -40,25 +39,12 @@
                      <children>
                         <HBox>
                            <children>
-                              <Label text="Agência">
-                                 <HBox.margin>
-                                    <Insets left="10.0" right="10.0" />
-                                 </HBox.margin>
-                              </Label>
-                              <TextField fx:id="txtAgencia" />
-                           </children>
-                           <padding>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                           </padding>
-                        </HBox>
-                        <HBox>
-                           <children>
                               <Label text="Correntista">
                                  <HBox.margin>
                                     <Insets left="10.0" right="10.0" />
                                  </HBox.margin>
                               </Label>
-                              <TextField fx:id="txtCorrentista" />
+                              <TextField fx:id="txtNome" />
                            </children>
                            <padding>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -66,12 +52,12 @@
                         </HBox>
                         <HBox>
                            <children>
-                              <Label text="Saldo">
+                              <Label text="Nascimento">
                                  <HBox.margin>
                                     <Insets left="10.0" right="10.0" />
                                  </HBox.margin>
                               </Label>
-                              <TextField fx:id="txtSaldo" />
+                              <TextField fx:id="txtNascimento" />
                            </children>
                            <padding>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

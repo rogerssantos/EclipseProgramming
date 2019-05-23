@@ -20,18 +20,16 @@ public class CadCorrentistaController {
 	private final int ACAO_NOVO = 2;
 	public int acao;
 	
-	@FXML TextField txtAgencia;
-	@FXML TextField txtCorrentista;
-	@FXML TextField txtSaldo;
+	@FXML TextField txtNome;
+	@FXML TextField txtNascimento;
 	//@FXML TextField txtFiltro;
 	@FXML CheckBox ckInativar;
 	@FXML Button btAcao;
 	@FXML Button btCancelar;
 	@FXML TableView<Correntista> tblCorrentista;
 	@FXML TableColumn<Correntista, Integer> colId;
-	@FXML TableColumn<Correntista, String> colAgencia;
-	@FXML TableColumn<Correntista, String> colCorrentista;
-	@FXML TableColumn<Correntista, Double> colSaldo;
+	@FXML TableColumn<Correntista, String> colNome;
+	@FXML TableColumn<Correntista, String> colNascimento;
 	
 	private int id;
 	
@@ -42,7 +40,7 @@ public class CadCorrentistaController {
 	@FXML
 	public void btAcao() {
 		Correntista c = tela4Correntista();
-		System.out.println(" - " + c.getStatus());
+		System.out.println(" - " + c.getId());
 		if (acao != ACAO_ATUALIZAR) {
 			dao.inserir(c);
 		} else {
@@ -67,9 +65,8 @@ public class CadCorrentistaController {
 	
 	private Correntista tela4Correntista() {
 		Correntista c = new Correntista();
-		c.setAgencia(txtAgencia.getText());
-		c.setCorrentista(txtCorrentista.getText());
-		c.setSaldo(Double.parseDouble(txtSaldo.getText()));
+		c.setNome(txtNome.getText());
+		c.setNascimento(txtNascimento.getText());
 		if (ckInativar.isSelected()) {
 			c.setStatus("I");
 		} else {
@@ -83,18 +80,16 @@ public class CadCorrentistaController {
 	public void initialize() {
 		btAcao.setText("Novo");
 		colId.setCellValueFactory(cellData -> cellData.getValue().idProperty().asObject());
-		colAgencia.setCellValueFactory(cellData -> cellData.getValue().agenciaProperty());
-		colCorrentista.setCellValueFactory(cellData -> cellData.getValue().correntistaProperty());
-		colSaldo.setCellValueFactory(cellData -> cellData.getValue().saldoProperty().asObject());
+		colNome.setCellValueFactory(cellData -> cellData.getValue().nomeProperty());
+		colNascimento.setCellValueFactory(cellData -> cellData.getValue().nascimentoProperty());
 		lista = dao.listaTudo();
 		tblCorrentista.setItems(FXCollections.observableArrayList(lista));
 	}
 
 	private void limpaTela() {
-		txtAgencia.setText("");
-		txtCorrentista.setText("");
-		txtSaldo.setText("");
-		txtAgencia.requestFocus();
+		txtNome.setText("");
+		txtNascimento.setText("");
+		txtNome.requestFocus();
 		ckInativar.setDisable(true);
 		btAcao.setText("Novo");
 		ckInativar.setSelected(false);
@@ -106,9 +101,8 @@ public class CadCorrentistaController {
 		@SuppressWarnings("unchecked")
 		Correntista c = ((TableView<Correntista>) event.getSource()).getSelectionModel().getSelectedItem();
 		id = c.getId();
-        txtAgencia.setText(c.getAgencia());
-		txtCorrentista.setText(c.getCorrentista());
-		txtSaldo.setText(c.getSaldo() + "");
+		txtNome.setText(c.getNome());
+		txtNascimento.setText(c.getNascimento());
         acao = ACAO_ATUALIZAR;
         ckInativar.setDisable(false);
         btCancelar.setDisable(false);

@@ -1,7 +1,5 @@
 package model;
 
-import javafx.beans.property.DoubleProperty;
-import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -9,14 +7,13 @@ import javafx.beans.property.StringProperty;
 public class Correntista {
 	
 	private SimpleIntegerProperty id = new SimpleIntegerProperty(0);
-	private StringProperty agencia = new SimpleStringProperty("");
-	private StringProperty correntista = new SimpleStringProperty("");
-	private DoubleProperty saldo = new SimpleDoubleProperty(0);
+	private StringProperty nome = new SimpleStringProperty("");
+	private StringProperty nascimento = new SimpleStringProperty("");
 	private StringProperty status = new SimpleStringProperty("");
 	
 	@Override
 	public String toString() {
-		return getAgencia()+" - "+getCorrentista();
+		return getNome()+" - "+getNascimento();
 	}
 
 	public SimpleIntegerProperty idProperty() {
@@ -31,28 +28,28 @@ public class Correntista {
 		this.idProperty().set(id);
 	}
 	
-	public StringProperty agenciaProperty() {
-		return this.agencia;
+	public StringProperty nascimentoProperty() {
+		return this.nascimento;
 	}
 	
-	public String getAgencia() {
-		return this.agenciaProperty().get();
+	public String getNascimento() {
+		return this.nascimentoProperty().get();
 	}
 	
-	public void setAgencia(final String agencia) {
-		this.agenciaProperty().set(agencia);
+	public void setNascimento(final String nascimento) {
+		this.nascimentoProperty().set(nascimento);
 	}
 	
-	public StringProperty correntistaProperty() {
-		return this.correntista;
+	public StringProperty nomeProperty() {
+		return this.nome;
 	}
 	
-	public String getCorrentista() {
-		return this.correntistaProperty().get();
+	public String getNome() {
+		return this.nomeProperty().get();
 	}
 
-	public void setCorrentista(final String correntista) {
-		this.correntistaProperty().set(correntista);
+	public void setNome(final String nome) {
+		this.nomeProperty().set(nome);
 	}
 	
 	public StringProperty statusProperty() {
@@ -67,16 +64,4 @@ public class Correntista {
 		this.statusProperty().set(status);
 	}
 	
-	
-	public DoubleProperty saldoProperty() {
-		return this.saldo;
-	}
-	
-	public double getSaldo() {
-		return this.saldoProperty().get();
-	}
-
-	public void setSaldo(double saldo) {
-		this.saldoProperty().set(saldo);
-	}
 }

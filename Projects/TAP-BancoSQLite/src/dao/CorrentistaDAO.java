@@ -8,13 +8,12 @@ import util.Constants;
 
 public class CorrentistaDAO {
 	
-	public void inserir(Correntista a) {
-		String sql = "insert into correntista (agencia, correntista, saldo) values (?, ?, ?)";
+	public void inserir(Correntista c) {
+		String sql = "insert into correntista (nome, nascimento) values (?, ?)";
 		try {
 			PreparedStatement ps = Constants.conn.prepareStatement(sql);
-			ps.setString(1, a.getAgencia());
-			ps.setString(2, a.getCorrentista());
-			ps.setDouble(3, a.getSaldo());
+			ps.setString(1, c.getNome());
+			ps.setString(2, c.getNascimento());
 			ps.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -23,15 +22,15 @@ public class CorrentistaDAO {
 	
 	public ArrayList<Correntista> listaTudo(){
 		ArrayList<Correntista> correntistas = new ArrayList<Correntista>();
-		String sql = "select agencia, correntista, saldo from correntista where status = 'A'";
+		String sql = "select id, nome, nascimento from correntista where status = 'A'";
 		try{
 			PreparedStatement ps = Constants.conn.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()){
 				Correntista c = new Correntista();
-				c.setAgencia(rs.getString("agencia"));
-				c.setCorrentista(rs.getString("correntista"));
-				c.setSaldo(rs.getDouble("saldo"));
+				c.setId(rs.getInt("id"));
+				c.setNome(rs.getString("nome"));
+				c.setNascimento(rs.getString("nascimento"));
 				correntistas.add(c);
 			}
 		}catch(Exception e){
@@ -41,13 +40,13 @@ public class CorrentistaDAO {
 	}
 	
 	public void atualizar(Correntista c) {
-		String sql = "update correntista set agencia = ?, correntista = ?, saldo = ?, status = ? where id = ?";
+		String sql = "update correntista set nome = ?, nascimento = ?, status = ? where id = ?";
 		try {
 			PreparedStatement ps = Constants.conn.prepareStatement(sql);
-			ps.setString(1, c.getAgencia());
-			ps.setString(2, c.getCorrentista());
-			ps.setDouble(3, c.getSaldo());
-			ps.setString(4, c.getStatus());
+			ps.setString(1, c.getNome());
+			ps.setString(2, c.getNascimento());
+			ps.setString(3, c.getStatus());
+			ps.setInt(4, c.getId());
 			ps.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
