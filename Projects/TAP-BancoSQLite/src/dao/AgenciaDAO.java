@@ -40,6 +40,27 @@ public class AgenciaDAO {
 		return agencias;
 	}
 	
+	public ArrayList<Agencia> filtrar(String filtro){
+		ArrayList<Agencia> agencias = new ArrayList<Agencia>();
+		String sql = "select numero, cidade, id, status from agencia where status = 'A' and cidade like ?";
+		try{
+			PreparedStatement ps = Constants.conn.prepareStatement(sql);
+			ps.setString(1,  "%"+filtro+"%");
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()){
+				Agencia a = new Agencia();
+				a.setNumero(rs.getString("numero"));
+				a.setCidade(rs.getString("cidade"));
+				a.setId(rs.getInt("id"));
+				a.setStatus(rs.getString("status"));
+				agencias.add(a);
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return agencias;
+	}
+	
 	public void atualizar(Agencia a) {
 		String sql = "update agencia set numero = ?, cidade = ?, status = ? where id = ?";
 		try {
