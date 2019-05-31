@@ -52,7 +52,6 @@ public class Agencia {
 		this.cidadeProperty().set(cidade);
 	}
 	
-	
 	public StringProperty statusProperty() {
 		return this.status;
 	}

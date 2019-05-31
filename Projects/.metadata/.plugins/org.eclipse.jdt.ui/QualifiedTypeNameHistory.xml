@@ -19,4 +19,17 @@
 <fullyQualifiedTypeName name="dao.ContaDAO"/>
 <fullyQualifiedTypeName name="model.Correntista"/>
 <fullyQualifiedTypeName name="dao.CorrentistaDAO"/>
+<fullyQualifiedTypeName name="com.sun.org.apache.xerces.internal.util.URI"/>
+<fullyQualifiedTypeName name="javafx.fxml.FXML"/>
+<fullyQualifiedTypeName name="com.sun.corba.se.spi.orbutil.fsm.Action"/>
+<fullyQualifiedTypeName name="java.io.IOException"/>
+<fullyQualifiedTypeName name="javafx.scene.layout.AnchorPane"/>
+<fullyQualifiedTypeName name="java.net.URL"/>
+<fullyQualifiedTypeName name="java.util.ResourceBundle"/>
+<fullyQualifiedTypeName name="javafx.event.ActionEvent"/>
+<fullyQualifiedTypeName name="javafx.stage.Stage"/>
+<fullyQualifiedTypeName name="javafx.scene.control.Button"/>
+<fullyQualifiedTypeName name="dao.ProfessorDAO"/>
+<fullyQualifiedTypeName name="model.Materia"/>
+<fullyQualifiedTypeName name="dao.MateriaDAO"/>
 </qualifiedTypeNameHistroy>
