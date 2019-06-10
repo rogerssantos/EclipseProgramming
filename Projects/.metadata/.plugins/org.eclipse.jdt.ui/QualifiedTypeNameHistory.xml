@@ -30,6 +30,8 @@
 <fullyQualifiedTypeName name="javafx.stage.Stage"/>
 <fullyQualifiedTypeName name="javafx.scene.control.Button"/>
 <fullyQualifiedTypeName name="dao.ProfessorDAO"/>
-<fullyQualifiedTypeName name="model.Materia"/>
 <fullyQualifiedTypeName name="dao.MateriaDAO"/>
+<fullyQualifiedTypeName name="javafx.scene.control.TableView"/>
+<fullyQualifiedTypeName name="model.Materia"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
 </qualifiedTypeNameHistroy>

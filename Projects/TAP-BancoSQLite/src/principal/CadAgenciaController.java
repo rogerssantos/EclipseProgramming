@@ -1,9 +1,6 @@
 package principal;
 
-import java.io.IOException;
 import java.util.ArrayList;
-
-import com.sun.javafx.image.impl.ByteIndexed.Getter;
 
 import dao.AgenciaDAO;
 import javafx.collections.FXCollections;
@@ -13,7 +10,6 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 import model.Agencia;
 
 public class CadAgenciaController {
@@ -110,6 +106,7 @@ public class CadAgenciaController {
 	@FXML
 	public void clickLinha() {
 		a = tblAgencia.getSelectionModel().getSelectedItem();
+		System.out.println(a.getId());
 		if (a != null) {
 			btAcao.setText("Atualizar");
 			agencia4Tela(a);

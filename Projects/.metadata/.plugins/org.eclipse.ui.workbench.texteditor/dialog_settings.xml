@@ -9,12 +9,19 @@
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="" key="selection"/>
+		<item value="tbmateria" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="tbmateria"/>
+			<item value="cdma"/>
+			<item value="id"/>
+			<item value="status"/>
+			<item value="stat"/>
+			<item value="age"/>
+			<item value="inserir"/>
 			<item value="agen"/>
 			<item value="numero"/>
 			<item value="Conexao"/>
@@ -22,14 +29,6 @@
 			<item value=""/>
 			<item value="projeto_final.sqlite"/>
 			<item value="correntista"/>
-			<item value="nome"/>
-			<item value="nascimento"/>
-			<item value="conta"/>
-			<item value="agencia"/>
-			<item value="tblCorrentista"/>
-			<item value="corrent"/>
-			<item value="Corrent"/>
-			<item value="Agencia"/>
 		</list>
 		<list key="replacehistory">
 			<item value="nome"/>
