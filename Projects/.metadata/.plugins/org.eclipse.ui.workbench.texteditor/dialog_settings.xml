@@ -9,20 +9,27 @@
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="selecionaRegistroMateria" key="selection"/>
+		<item value="" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="syste"/>
+			<item value="system"/>
+			<item value="sistem"/>
+			<item value="res"/>
+			<item value="materia"/>
+			<item value="cdmate"/>
+			<item value="cdaluno"/>
+			<item value="mensagemErroValidacao"/>
+			<item value="txtQuestao.setText(questao.get(0).getTextoQuestao());"/>
+			<item value="aluno"/>
+			<item value="cdal"/>
+			<item value="resposta"/>
+			<item value="opcao"/>
+			<item value="limpa"/>
 			<item value="selecionaRegistroMateria"/>
-			<item value="tbmateria"/>
-			<item value="cdma"/>
-			<item value="id"/>
-			<item value="status"/>
-			<item value="stat"/>
-			<item value="age"/>
-			<item value="inserir"/>
 		</list>
 		<list key="replacehistory">
 			<item value="nome"/>
